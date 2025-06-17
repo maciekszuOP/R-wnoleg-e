@@ -124,7 +124,7 @@ int main(int argc, char* argv[]) {
 
     auto start = chrono::high_resolution_clock::now();
 
-    int threadsPerBlock = 256;
+    int threadsPerBlock = 1024;
     for (int s = 1; s <= static_cast<int>(log2(N)); ++s) {
         int blocks = (N / 2 + threadsPerBlock - 1) / threadsPerBlock;
         fft_stage<<<blocks, threadsPerBlock>>>(d_data, N, s);
